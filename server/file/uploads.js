@@ -26,7 +26,16 @@ const uploadImage = multer({
 }).single('file');
 
 
+const uploadImages = multer({
+  storage:storageImage,
+  fileFilter:fileFilterImages
+}).fields([
+  {name:'subscription', maxCount:1},
+  {name:'registration', maxCount:1}
+])
+
 
 module.exports ={
-    uploadImage
+    uploadImage,
+    uploadImages
 }

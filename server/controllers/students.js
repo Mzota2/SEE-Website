@@ -1,95 +1,88 @@
 const {db} = require("../connect");
-const {uploadImage} = require("../file/uploads");
+const {uploadImage, uploadImages} = require("../file/uploads");
 const {removeUploadedFile} = require("../file/manageFiles");
 const moment = require("moment");
 const path = require("path");
 const {hash} = require("bcrypt")
 
-const Register = (req, res)=>{
-    try {
-        const {email, phone, reg_number, program, year, is_registered, full_name} = req.body;
-
-        uploadImage(res, req, (err, data)=>{
-            if(err) return res.status(500).json(err);
-            const q = `INSERT INTO students
-             email =? , reg_number =?, phone = ? , program = ?,
-             year = ? , is_registered = ?, full_name = ?, password = ?,
-             receipt_url = ?, created_at = ?, updated_at = ?
-             `;
-
-            const hashedPwd = hash(password, 10);
-            const date = moment();
-            
-            db.query(q, [email, reg_number, phone, program, year, is_registered, full_name, hashedPwd, req?.file?.filename, date , date ], (err, data)=>{
-                if(err){
-                    removeUploadedFile(req?.file?.path);
-                    return res.status(500).json(err);
-                }
-                else{
-                    return res.status(201).json("Registered successfully")
-                }
-            })
-        })
-        
-    } catch (error) {
-        return res.status(500).json(error);
-    }
-}
 
 const Update = (req, res)=>{
     try {
+        uploadImages(req, res, (err, data)=>{
 
-        const {email, password, phone, reg_number, program, year, is_registered, full_name} = req.body;
-        const q = `UPDATE students SET
-            email = COALESCE(email,  ?),
-            phone = COALESCE(phone, ?),
-            password = COALESCE(password, ?),
-            reg_number = COALESCE(reg_number , ?),
-            program = COALESCE(program, ?),
-            year = COALESCE(year, ?),
-            is_registered = COALESCE(is_registered, ?),
-            full_name = COALESCE(full_name, ?),
-            receipt_url = COALESCE(receipt_url, ?),
-            updated_at = COALESCE(updated_at, ?)
-            `;
-            const hashedPwd = hash(password, 10);
-        if(!req?.file?.path){
-         
-           const date = moment();
-           console.log(date);
-           db.query(q, [email, phone, hashedPwd, reg_number, program, year, is_registered, full_name, req?.file?.filename, date], (err, data)=>{
-               if(err){
-                   removeUploadedFile(req?.file?.path);
-                   return res.status(500).json(err);
-               }
-               else{
-                   return res.status(201).json("Updated successfully");
-               }
-           })
+            const {email, password, phone, regNumber, programId, year, isRegistered, isSubscribed, firstname, surname} = req.body;
+            const {id} = req?.params;
+            console.log(firstname);
+            const q = `UPDATE students SET
+                email = COALESCE(?,  email),
+                firstname = COALESCE(?, firstname),
+                surname = COALESCE(?, surname),
+                phone = COALESCE(?, phone),
+                password = COALESCE(?, password),
+                regNumber = COALESCE(?, regNumber),
+                programId = COALESCE(?, programId),
+                year = COALESCE(?, year),
+                isRegistered = COALESCE(?, isRegistered),
+                isSubscribed = COALESCE(?, isSubscribed),
+                regProofUrl = COALESCE(?, regProofUrl),
+                subProofUrl = COALESCE(?, subProofUrl),
+                updatedAt = COALESCE(?, updatedAt)
+                WHERE id = ?
+                `;
+            var hashedPwd;
+            if(password?.length){
+                hashedPwd = hash(password, 10);
+            }
+            
+            if(err) return res.status(500).json(err);
 
-        }else{
-
-            uploadImage(res, req, (err, data)=>{
-                if(err) return res.status(500).json(err);
-                
-                const date = moment();
-                console.log(date);
-                
-                db.query(q, [email, 
-                    phone, hashedPwd, reg_number, program, year, is_registered, full_name, req?.file?.filename, date , date ], (err, data)=>{
+            const date = moment().format("YYYY-MM-DD:HH:mm:ss");
+            const files = req?.files;
+            const subImage = files.subscription? files.subscription[0].filename : null;
+            const regImage = files.registration ? files.registration[0].filename : null;
+           
+            if(!subImage && !regImage){
+                const date = moment().format('YYYY-MM-DD:HH:mm:ss');
+                db.query(q, [email, firstname, surname, phone, hashedPwd, regNumber, programId, year, isRegistered, isSubscribed, regImage, subImage, date, id], (err, data)=>{
                     if(err){
-                        removeUploadedFile(req?.file?.path);
                         return res.status(500).json(err);
                     }
                     else{
-                        return res.status(201).json("Registered successfully")
+                        console.log(data);
+                        return res.status(201).json("Updated successfully");
                     }
                 })
-            })
-        }
-        
+            }
+            else{
+                const q2 = 'SELECT subProofUrl, regProofUrl FROM students WHERE id = ?';
+                db.query(q2, [id], (err, data)=>{
+                    if(err) return res.status(500).json(err);
+                    const subPath = data[0]?.subProofUrl ? path.resolve(__dirname, `../uploads/images/${data[0]?.subProofUrl}`):null;
+                    const regPath = data[0]?.regProofUrl ? path.resolve(__dirname, `../uploads/images/${data[0]?.regProofUrl}`):null;
+                    subPath ? removeUploadedFile(subPath):'';
+                    regPath ? removeUploadedFile(regPath):'';
+                    db.query(q, [email, firstname, surname, phone, hashedPwd, regNumber, programId, year, isRegistered, isSubscribed, regImage, subImage, date, id], (err, data)=>{
+                        if(err){
+                            const subPath = files.subscription? files.subscription[0].path : null;
+                            const regPath = files.registration ? files.registration[0].path : null;
+                            subPath ? removeUploadedFile(subPath):'';
+                            regPath ? removeUploadedFile(regPath): '';
+                            return res.status(500).json(err);
+                        }
+                        else{
+                            console.log(data);
+                            return res.status(201).json("Updated successfully")
+                        }
+                    })
+                })
+                
+            }
+            
+            
+        })
         
     } catch (error) {
+        console.log(error);
         return res.status(500).json(error);
     }
 }
@@ -98,13 +91,15 @@ const Delete = (req, res)=>{
     try {
         const {id} = req?.params;
         const q = 'DELETE * FROM students WHERE id = ?';
-        const q1 = 'SELECT receipt_url FROM students WHERE id = ?';
+        const q1 = 'SELECT regProofUrl, subProofUrl, FROM students WHERE id = ?';
         db.query(q1, [id], (err, student)=>{
             if(err) return res.status(500).json(err);
             db.query(q, [id], (err, data)=>{
                 if(err) return res.status(500).json(err);
-                const filePath = path.join(__dirname, `../uploads/images/${student?.receipt_url}`);
-                removeUploadedFile(filePath)
+                const regPath = path.join(__dirname, `../uploads/images/${student?.regProofUrl}`);
+                const subPath = path.join(__dirname, `../uploads/images/${student?.subProofUrl}`);
+                removeUploadedFile(regPath);
+                removeUploadedFile(subPath)
             })
             
         })
@@ -127,16 +122,21 @@ const GetAll = (req, res)=>{
     }
 }
 
+
 const GetStudent = (req, res)=>{
     try {
-
-        const {id}= req?.params;
+        const id  = req?.id;
         const q = 'SELECT * FROM students WHERE id = ?';
-    
         db.query(q, [id], (err, data)=>{
             if(err) return res.status(500).json(data);
-            const {password, ...other} = data[0];
-            return res.status(200).json(other);
+            if(data?.length){
+                const {password, accountToken, passwordToken, regProofUrl, subProofUrl, ...other} = data[0];
+                return res.status(200).json(other);
+            }
+            else{
+                return res.status(200).json({});
+            }
+            
         })
         
     } catch (error) {
@@ -145,7 +145,6 @@ const GetStudent = (req, res)=>{
 }
 
 module.exports = {
-    Register,
     Update,
     Delete,
     GetAll,

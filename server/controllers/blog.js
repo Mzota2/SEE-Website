@@ -1,14 +1,14 @@
 const {db} = require("../connect");
 const moment = require("moment");
 
-const createTeam = (req, res)=>{
+const createBlog = (req, res)=>{
     try {
         const {title, description} = req.body;
-        const q = 'INSERT INTO teams (`title`, `description`, `createdAt`, `updatedAt`) VALUES(?, ?, ?, ?)';
+        const q = 'INSERT INTO blogs (`title`, `description`, `createdAt`, `updatedAt`) VALUES(?, ?, ?, ?)';
         const date = moment().format("YYYY-MM-DD:HH:mm:ss");
         db.query(q, [title, description, date, date], (err, data)=>{
             if(err) return res.status(500).json(err)
-            return res.status(201).json({message:"Successfully created team"});
+            return res.status(201).json({message:"Successfully created blog data"});
         })
         
     } catch (error) {
@@ -16,14 +16,14 @@ const createTeam = (req, res)=>{
     }
 }
 
-const updateTeam = (req, res)=>{
+const updateBlog = (req, res)=>{
     try {
         const {title, description} = req.body;
         const date = moment().format("YYYY-MM-DD:HH:mm:ss");
-        const q = 'UPDATE teams SET title =COALESCE(?, title), description = COALESCE(?, description), updatedAt = COALESCE(?, updatedAt) WHERE id = ?';
+        const q = 'UPDATE blogs SET title =COALESCE(?, title), description = COALESCE(?, description), updatedAt = COALESCE(?, updatedAt) WHERE id = ?';
         db.query(q, [title, description, date, 1], (err, data)=>{
             if(err) return res.status(500).json(err)
-            return res.status(200).json({message:"Successfully updated team"});
+            return res.status(200).json({message:'Successfully updated Blog'});
         })
         
     } catch (error) {
@@ -31,9 +31,9 @@ const updateTeam = (req, res)=>{
     }
 }
 
-const getTeam = (req, res)=>{
+const getBlog = (req, res)=>{
     try {
-        const q = 'SELECT * FROM teams WHERE id = ?';
+        const q = 'SELECT * FROM blogs WHERE id = ?';
         db.query(q, [1], (err, data)=>{
             if(err) return res.status(500).json(err)
             return res.status(200).json(data[0]);
@@ -44,9 +44,9 @@ const getTeam = (req, res)=>{
     }
 }
 
-const deleteTeam = (req, res)=>{
+const deleteBlog = (req, res)=>{
     try {
-        const q = 'DELETE * FROM teams WHERE id = ?';
+        const q = 'DELETE * FROM blogs WHERE id = ?';
         db.query(q,[1], (err, data)=>{
             if(err) return res.status(500).json(err)
             return res.status(200).json({message:"Successfully deleted blog data"});
@@ -58,8 +58,8 @@ const deleteTeam = (req, res)=>{
 }
 
 module.exports = {
-    createTeam,
-    updateTeam,
-    getTeam,
-    deleteTeam
+    createBlog,
+    updateBlog,
+    getBlog,
+    deleteBlog
 }
