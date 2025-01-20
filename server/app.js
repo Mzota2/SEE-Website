@@ -20,7 +20,9 @@ const port = process.env?.PORT || 3000;
 //middlewares
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors())
+app.use(cors({
+    origin:['http://127.0.0.1:5500']
+}))
 
 //routes
 app.use("/api", studentsRoutes);
