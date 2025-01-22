@@ -11,6 +11,14 @@ header{
     position: fixed;
     z-index: 2;
 }
+main{
+    padding-top: 65px;
+}
+
+footer, footer a{
+    background-color: #3A376E;
+    color: #FFFFFF;
+}
 
 .see-header{
     position: relative;
@@ -21,6 +29,10 @@ header{
 .see-heading-tag{
     color: #0C85B7;
     text-align: center;
+}
+
+.see-hero-overlay{
+    background-color: #0c84b77c;
 }
 
 .see-more{
@@ -39,9 +51,7 @@ header{
     padding-bottom: 10px;
 }
 
-main{
-    padding-top: 65px;
-}
+
 
 .see-card-img{
     width: 100%;
@@ -49,7 +59,3 @@ main{
     border-radius:0.5rem;
 }
 
-footer, footer a{
-    background-color: #3A376E;
-    color: #FFFFFF;
-}
