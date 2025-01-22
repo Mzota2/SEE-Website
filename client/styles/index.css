@@ -28,6 +28,33 @@ header{
 main{
     padding-top: 65px;
 }
+
+.see-card{
+    width: 100%;
+    padding: 3%;
+}
+.see-card-img{
+    width: 100%;
+    height: 10rem;
+    border-radius:0.5rem;
+}
+.see-card-title{
+    margin-top: 0.5rem;
+}
+
+.see-card-text{
+
+}
+
+
+
+
+
+
+
+
+
+
 footer, footer a{
     background-color: #3A376E;
     color: #FFFFFF;
