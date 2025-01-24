@@ -1,0 +1,203 @@
+/* all styles for auth pages */
+body{
+    color:black;
+    background-color: white;
+}
+
+.auth-container{
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom,var(--gradient-yellow), var(--gradient-blue));
+    
+}
+.auth-image-container{
+    height: 50vh;
+    width: 100vw;
+    background-color: aqua;
+}
+.auth-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.auth-lgradient{
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 50vh;
+    width: 100vw;
+    background-image: linear-gradient(to bottom,var(--gradient-yellow), var(--gradient-blue));
+}
+.see-logo{
+    height: 93px;
+    width: 93px;
+    object-fit: cover;
+}
+.see-column{
+    display: flex;
+    flex-direction: column;
+}
+.auth-form-suspend{
+    top: 0;
+    left: 0;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.see-auth-form{
+    height: 90vh;
+    overflow-y: auto;
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    border-radius:20px 10px;
+}
+
+.see-auth-fields{
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.auth-field{
+   
+}
+
+.auth-field-input{
+    height: 42px;
+    border-radius: 5px;
+    border: 1px solid var(--yellow);
+    font-family: 'Poppins', sans-serif;
+    padding: 0 5px;
+
+}
+
+.auth-field-label{
+    font-weight: medium;
+}
+
+.auth-form-title-container{
+    align-self: center;
+    text-align: center;
+
+}
+
+.auth-form-title{
+    font-size: 1.3rem;
+}
+
+.auth-form-sub-title{
+    font-size: 1rem;
+    color: var(--light-blue);
+    margin-top: 8px;
+}
+
+.see-auth-btn{
+    height: 42px;
+    background-color: var(--light-blue);
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+}
+
+.see-auth-btn:hover{
+    opacity: 0.5;
+    transition: .5s ease;
+}
+
+.see-auth-btn:focus{
+    opacity: 0.5;
+    transition: .5s ease;
+}
+
+.payment-proof-file-container{
+    position: relative;
+    border: 1px solid var(--yellow);
+    height: 42px;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    border-radius: 5px;
+    
+}
+
+.payment-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    position: relative;
+    justify-content: center;
+    height: fit-content;
+}
+.payment-input{
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 20px;
+    z-index: 1;
+    opacity: 0;
+
+}
+.upload-icon{
+    top: 0;
+    left: 0;
+    font-size: 24px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.upload-icon:hover{
+    color: var(--light-blue);
+    transition: .5s ease;
+}
+.upload-icon:focus{
+    color: var(--light-blue);
+    transition: .5s ease;
+}
+
+.proof-placeholder-text{
+    color: #848b9b;
+    font-size: 13px;
+}
+
+.auth-password-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    
+}
+.auth-password-container input{
+    width: 100%;
+}
+.password-icon{
+    position: absolute;
+    right: 5px;
+    cursor: pointer;
+}
+
+.password-icon:focus{
+    color: var(--light-blue);
+    transition: .5s ease;
+}
+
+.password-icon:hover{
+    color: var(--light-blue);
+    transition: .5s ease;
+}
+.auth-redirect{
+    text-align: center;
+}
+.auth-redirect-anchor{
+    text-decoration: none;
+    color: var(--light-blue);
+}
