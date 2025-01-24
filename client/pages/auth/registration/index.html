@@ -3,36 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../styles/index.css">
     <link rel="stylesheet" href="../../../styles/auth.css">
+    <script src="https://kit.fontawesome.com/4aba7f41d8.js" crossorigin="anonymous"></script>
     <title>SEE-Register</title>
 </head>
 <body>
 
-    <main>
-        <form class="see-auth-form see-column" action="">
-            <div>
-                <img src="../../../assets/images/main-logo.jpg" alt="SEE LOGO" class="see-logo">
-                <h2>Society of Electrical Engineers - MUBAS</h2>
-                <h3>GET REGISTERED</h3>
-            </div>
-
-            <div class="see-column see-auth-fields">
-                <div class="see-column auth-field">
-                    <label for="firstname" class="auth-field-label">Firstname *</label>
-                    <input type="text" id="firstname" placeholder="Enter your firstname" class="auth-field-input">
+    <main class="auth-container">
+        <div class="auth-image-container">
+            <img class="auth-image" src="../../../assets/images/bak.jpg" alt="tele lines">
+        </div>
+        <!-- <div class="auth-lgradient"></div> -->
+        <div class="auth-form-suspend">
+            <form class="see-auth-form see-column" action="">
+                <div class="auth-form-title-container">
+                    <img src="../../../assets/images/main-logo.jpg" alt="SEE LOGO" class="see-logo">
+                    <h1 class="auth-form-title">Society of Electrical Engineers - MUBAS</h1>
+                    <h2 class="auth-form-sub-title">GET REGISTERED</h2>
                 </div>
+    
+                <div class="see-column see-auth-fields">
+                    <div class="see-column auth-field">
+                        <label for="firstname" class="auth-field-label">Firstname *</label>
+                        
+                        <input type="text" id="firstname" placeholder="Enter your firstname" class="auth-field-input">
+                    </div>
+    
+                    <div class="see-column auth-field">
+                        <label for="surname" class="auth-field-label">Surname *</label>
+                        <input type="text" id="surname" placeholder="Enter your surname" class="auth-field-input">
+                    </div>
+    
+                    <div class="see-column auth-field">
+                        <label for="email-address" class="auth-field-label">Email address *</label>
+                        <input type="email" id="email-address" placeholder="Enter your email address" class="auth-field-input">
+                    </div>
 
-                <div class="see-column auth-field">
-                    <label for="surname" class="auth-field-label">Surname *</label>
-                    <input type="text" id="surname" placeholder="Enter your surname" class="auth-field-input">
-                </div>
+                    <div class="see-column auth-field">
+                        <label for="regnumber" class="auth-field-label">Registration number *</label>
+                        <input type="text" id="regnumber" placeholder="Enter your reg number" class="auth-field-input">
+                    </div>
 
-                <div class="see-column auth-field">
-                    <label for="email-address" class="auth-field-label">Email address *</label>
-                    <input type="email" id="email-address" placeholder="Enter your firstname" class="auth-field-input">
+                    <div class="see-column auth-field">
+                        <label for="programs" class="auth-field-label">Program of study *</label>
+                        <select placeholder="Select your program of study"  name="programs" id="programs" class="auth-field-input">
+    
+                            <option value="1">BECE</option>
+                            <option value="2">BETE</option>
+                            <option value="3">BEEE</option>
+                            <option value="4">BBME</option>
+                        </select>
+                        
+                    </div>
+
+                    <div class="see-column auth-field">
+                        <label for="year" class="auth-field-label">Year of study *</label>
+                        <select placeholder="Select your year of study"  name="year" id="year" class="auth-field-input">
+                            <option value="1">Year 1</option>
+                            <option value="2">Year 2</option>
+                            <option value="3">Year 3</option>
+                            <option value="4">Year 4</option>
+                            <option value="4">Year 5</option>
+                        </select>
+                        
+                    </div>
+
+                    <div class="see-column auth-field">
+                        <label for="payment" class="auth-field-label">Upload proof of payment*</label>
+                        <div class="payment-proof-file-container">
+                            <p class="proof-placeholder-text">Membership fee</p>
+                            <div class="payment-icon">
+                                <input type="file" accept="image/*" id="payment"  class="payment-input">
+                                <i class="fas fa-file-upload upload-icon"></i>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+
+                    <div class="see-column auth-field">
+                        <label for="password" class="auth-field-label">Password *</label>
+                        <div class="auth-password-container">
+                            <input type="password" id="password" placeholder="Enter your password" class="auth-field-input">
+                            <i class="far fa-eye password-icon"></i>
+                        </div>
+                        
+                    </div>
+
+                    <div class="see-column auth-field">
+                        <label for="cofirm-password" class="auth-field-label">Confirm Password *</label>
+                        <div class="auth-password-container">
+                            <input type="password" id="confirm-password" placeholder="Re-enter your password" class="auth-field-input">
+                            <i class="far fa-eye password-icon"></i>
+                        </div>
+                        
+                    </div>
+
+                    <button class="see-auth-btn">Register</button>
+
+                    <div class="auth-redirect">
+                        <p>Already a member ?</p>
+                        <a class="auth-redirect-anchor" href="../login/index.html">Login Now</a>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
+        
+
     </main>
     
 </body>
