@@ -5,6 +5,17 @@ body{
     color:#0C85B7;
     background-color: black;
 }
+:root{
+    --light-blue: #0C85B7;
+    --dark-blue:#3A376E;
+    --yellow:#EEDA9F;
+    --white:#FFFFFF;
+    --feint-white:#F5F5F5;
+    --black:#000000;
+    --green:#0DA740;
+    --gradient-blue:#06587A;
+    --gradient-yellow:#EEDA9F;
+}
 header{
     height: 65px;
     width: 100vw;
