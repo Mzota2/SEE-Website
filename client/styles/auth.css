@@ -1,0 +1,28 @@
+/* all styles for auth pages */
+
+.see-logo{
+    height: 93px;
+    width: 93px;
+    object-fit: cover;
+}
+
+.see-column{
+    display: flex;
+    flex-direction: column;
+}
+
+.see-auth-form{
+    width: 100%;
+}
+.see-auth-fields{
+    gap: 5;
+}
+
+.auth-field{
+   
+}
+
+.auth-field-input{
+    height: 42px;
+    border-radius: 5px;
+}
