@@ -1,1 +1,1 @@
-export const appUrl = '=https://seeapi.itsabstract.com/api/';
+export const appUrl ='http://seeapi.itsabstract.com/api/';

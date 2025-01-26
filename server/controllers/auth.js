@@ -203,7 +203,7 @@ const register = async (req, res)=>{
     //CHECK USER IF EXISTS 
     uploadImage(req, res, (err, data)=>{
         const {password, email, firstname, surname, programId, year, regNumber} = req.body;
-
+        console.log(password); console.log(req?.body);
         const q = 'SELECT * FROM students WHERE email = ?';
         
         db.query(q, [email],async(err, data)=>{

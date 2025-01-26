@@ -1,20 +1,19 @@
 // Registration constants
 import {appUrl} from '../../../helpers.js';
 
-const BUTTON = document.getElementById("submit-button");
-const EMAIL = document.getElementById("email");
+const FORM = document.getElementById("submit-form");
+const EMAIL = document.getElementById("email-address");
 const FIRSTNAME = document.getElementById("firstname");
 const SURNAME = document.getElementById("surname");
 const REGNO = document.getElementById("regnumber");
-const PROGRAM = document.getElementById("program");
+const PROGRAM = document.getElementById("programs");
 const YEAR = document.getElementById("year");
-const PAYMENT = document.getElementById("payment-proof");
+const PAYMENT = document.getElementById("payment");
 const PASSWORD = document.getElementById("password");
 const CONFIRM_PASSWORD = document.getElementById("confirm-password");
 
 
 const handleRegister = async(e)=>{
-    e.preventDefault();
     const confirmValue = CONFIRM_PASSWORD?.value;
     const passwordValue = PASSWORD?.value;
     
@@ -32,9 +31,12 @@ const handleRegister = async(e)=>{
             form.append("year", YEAR?.value);
             form.append("file", PAYMENT?.files[0]);
             form.append("password", PASSWORD?.value);
+            console.log(form);
+            console.log(JSON.stringify(form));
             const response = await fetch(`${appUrl}auth/register`, {
                 method:"POST",
-                body:JSON.stringify(form)
+                body:form,
+                credentials:'include'
             });
 
             const result = response.json();
@@ -46,4 +48,7 @@ const handleRegister = async(e)=>{
     }
 }
 
-BUTTON.addEventListener('submit', handleRegister)
+FORM.addEventListener('submit',(e)=>{
+    e.preventDefault();
+    handleRegister();
+})
