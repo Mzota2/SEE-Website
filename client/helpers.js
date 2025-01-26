@@ -1,0 +1,1 @@
+export const appUrl = '=https://seeapi.itsabstract.com/api/';

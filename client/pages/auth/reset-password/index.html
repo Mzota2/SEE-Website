@@ -3,9 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../styles/index.css">
+    <link rel="stylesheet" href="../../../styles/auth.css">
+    <script src="https://kit.fontawesome.com/4aba7f41d8.js" crossorigin="anonymous"></script>
     <title>SEE-reset-password</title>
 </head>
 <body>
+    <main class="auth-container">
+        <div class="auth-image-container">
+            <img class="auth-image" src="../../../assets/images/bak.jpg" alt="tele lines">
+        </div>
+        <!-- <div class="auth-lgradient"></div> -->
+        <div class="auth-form-suspend auth-form-suspend-login">
+            <form class="see-auth-form see-column" action="">
+                <div class="auth-form-title-container">
+                    <img src="../../../assets/images/main-logo.jpg" alt="SEE LOGO" class="see-logo">
+                    <h1 class="auth-form-title">Society of Electrical Engineers - MUBAS</h1>
+                    <h2 class="auth-form-sub-title">FORGOT PASSWORD</h2>
+                </div>
     
+                <div class="see-column see-auth-fields">
+                   
+                    <div class="see-column auth-field">
+                        <label for="password" class="auth-field-label">New Password</label>
+                        <div class="auth-password-container">
+                            <input type="password" id="password" placeholder="Enter your password" class="auth-field-input">
+                            <i class="far fa-eye password-icon"></i>
+                        </div>
+                        
+                    </div>
+
+                    <div class="see-column auth-field">
+                        <label for="confirm-password" class="auth-field-label">Confirm Password</label>
+                        <div class="auth-password-container">
+                            <input type="password" id="confirm-password" placeholder="Re-enter your password" class="auth-field-input">
+                            <i class="far fa-eye password-icon"></i>
+                        </div>
+                    </div>
+
+                    <button class="see-auth-btn">Continue</button>
+
+                    
+                </div>
+            </form>
+        </div>
+        
+
+    </main>
 </body>
 </html>

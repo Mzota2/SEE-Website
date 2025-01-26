@@ -9,7 +9,6 @@
     <title>SEE-Register</title>
 </head>
 <body>
-
     <main class="auth-container">
         <div class="auth-image-container">
             <img class="auth-image" src="../../../assets/images/bak.jpg" alt="tele lines">
@@ -27,45 +26,50 @@
                     <div class="see-column auth-field">
                         <label for="firstname" class="auth-field-label">Firstname *</label>
                         
-                        <input type="text" id="firstname" placeholder="Enter your firstname" class="auth-field-input">
+                        <input required type="text" id="firstname" placeholder="Enter your firstname" class="auth-field-input">
                     </div>
     
                     <div class="see-column auth-field">
                         <label for="surname" class="auth-field-label">Surname *</label>
-                        <input type="text" id="surname" placeholder="Enter your surname" class="auth-field-input">
+                        <input required type="text" id="surname" placeholder="Enter your surname" class="auth-field-input">
                     </div>
     
                     <div class="see-column auth-field">
                         <label for="email-address" class="auth-field-label">Email address *</label>
-                        <input type="email" id="email-address" placeholder="Enter your email address" class="auth-field-input">
+                        <input required type="email" id="email-address" placeholder="Enter your email address" class="auth-field-input">
                     </div>
 
                     <div class="see-column auth-field">
                         <label for="regnumber" class="auth-field-label">Registration number *</label>
-                        <input type="text" id="regnumber" placeholder="Enter your reg number" class="auth-field-input">
+                        <input required type="text" id="regnumber" placeholder="Enter your reg number" class="auth-field-input">
                     </div>
 
                     <div class="see-column auth-field">
                         <label for="programs" class="auth-field-label">Program of study *</label>
-                        <select placeholder="Select your program of study"  name="programs" id="programs" class="auth-field-input">
-    
-                            <option value="1">BECE</option>
-                            <option value="2">BETE</option>
-                            <option value="3">BEEE</option>
-                            <option value="4">BBME</option>
-                        </select>
+                        <div class="auth-password-container">
+                            <select required placeholder="Select your program of study"  name="programs" id="programs" class="auth-field-input custom-select">
+                                <option value="1">BECE</option>
+                                <option value="2">BETE</option>
+                                <option value="3">BEEE</option>
+                                <option value="4">BBME</option>
+                            </select>
+                            <i class="fas fa-caret-down drop-down-icon"></i>
+                        </div>
                         
                     </div>
 
                     <div class="see-column auth-field">
                         <label for="year" class="auth-field-label">Year of study *</label>
-                        <select placeholder="Select your year of study"  name="year" id="year" class="auth-field-input">
-                            <option value="1">Year 1</option>
-                            <option value="2">Year 2</option>
-                            <option value="3">Year 3</option>
-                            <option value="4">Year 4</option>
-                            <option value="4">Year 5</option>
-                        </select>
+                        <div class="auth-password-container">
+                            <select required placeholder="Select your year of study"  name="year" id="year" class="custom-select auth-field-input">
+                                <option value="1">Year 1</option>
+                                <option value="2">Year 2</option>
+                                <option value="3">Year 3</option>
+                                <option value="4">Year 4</option>
+                                <option value="4">Year 5</option>
+                            </select>
+                            <i class="fas fa-caret-down drop-down-icon"></i>
+                        </div>
                         
                     </div>
 
@@ -74,7 +78,7 @@
                         <div class="payment-proof-file-container">
                             <p class="proof-placeholder-text">Membership fee</p>
                             <div class="payment-icon">
-                                <input type="file" accept="image/*" id="payment"  class="payment-input">
+                                <input required type="file" accept="image/*" id="payment"  class="payment-input">
                                 <i class="fas fa-file-upload upload-icon"></i>
                             </div>
                             
@@ -85,7 +89,7 @@
                     <div class="see-column auth-field">
                         <label for="password" class="auth-field-label">Password *</label>
                         <div class="auth-password-container">
-                            <input type="password" id="password" placeholder="Enter your password" class="auth-field-input">
+                            <input required type="password" id="password" placeholder="Enter your password" class="auth-field-input">
                             <i class="far fa-eye password-icon"></i>
                         </div>
                         
@@ -94,13 +98,13 @@
                     <div class="see-column auth-field">
                         <label for="cofirm-password" class="auth-field-label">Confirm Password *</label>
                         <div class="auth-password-container">
-                            <input type="password" id="confirm-password" placeholder="Re-enter your password" class="auth-field-input">
+                            <input required type="password" id="confirm-password" placeholder="Re-enter your password" class="auth-field-input">
                             <i class="far fa-eye password-icon"></i>
                         </div>
                         
                     </div>
 
-                    <button class="see-auth-btn">Register</button>
+                    <button id="submit-button" class="see-auth-btn">Register</button>
 
                     <div class="auth-redirect">
                         <p>Already a member ?</p>
@@ -110,8 +114,8 @@
             </form>
         </div>
         
-
     </main>
-    
 </body>
+<script type="module" src="../../../helpers.js"></script>
+<script type="module" src="app.js"></script>
 </html>
