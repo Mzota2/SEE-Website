@@ -1,1 +1,1 @@
-export const appUrl ='http://seeapi.itsabstract.com/api/';
+export const appUrl ='http://localhost:3000/api/';

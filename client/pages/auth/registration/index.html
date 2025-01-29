@@ -9,13 +9,18 @@
     <title>SEE-Register</title>
 </head>
 <body>
+    <!-- Alert -->
+     <div id="alert-box" class="">
+        
+     </div>
+
     <main class="auth-container">
         <div class="auth-image-container">
             <img class="auth-image" src="../../../assets/images/bak.jpg" alt="tele lines">
         </div>
         <!-- <div class="auth-lgradient"></div> -->
         <div class="auth-form-suspend">
-            <form id="submit-form" class="see-auth-form see-column" action="">
+            <form onsubmit="return false" id="submit-form" class="see-auth-form see-column" action="">
                 <div class="auth-form-title-container">
                     <img src="../../../assets/images/main-logo.jpg" alt="SEE LOGO" class="see-logo">
                     <h1 class="auth-form-title">Society of Electrical Engineers - MUBAS</h1>
@@ -25,7 +30,6 @@
                 <div class="see-column see-auth-fields">
                     <div class="see-column auth-field">
                         <label for="firstname" class="auth-field-label">Firstname *</label>
-                        
                         <input required type="text" id="firstname" placeholder="Enter your firstname" class="auth-field-input">
                     </div>
     
@@ -37,6 +41,7 @@
                     <div class="see-column auth-field">
                         <label for="email-address" class="auth-field-label">Email address *</label>
                         <input required type="email" id="email-address" placeholder="Enter your email address" class="auth-field-input">
+                        <p id="email-error-message" class="error-message"></p>
                     </div>
 
                     <div class="see-column auth-field">
@@ -76,7 +81,7 @@
                     <div class="see-column auth-field">
                         <label for="payment" class="auth-field-label">Upload proof of payment*</label>
                         <div class="payment-proof-file-container">
-                            <p class="proof-placeholder-text">Membership fee</p>
+                            <p id="proof-placeholder-text" class="proof-placeholder-text">Membership fee</p>
                             <div class="payment-icon">
                                 <input required type="file" accept="image/*" id="payment"  class="payment-input">
                                 <i class="fas fa-file-upload upload-icon"></i>
@@ -90,8 +95,9 @@
                         <label for="password" class="auth-field-label">Password *</label>
                         <div class="auth-password-container">
                             <input required type="password" id="password" placeholder="Enter your password" class="auth-field-input">
-                            <i class="far fa-eye password-icon"></i>
-                        </div>
+                            <i id="see-password" class="far fa-eye password-icon"></i>
+                        
+                        <p id="password-error-message" class="error-message"></p>
                         
                     </div>
 
@@ -99,11 +105,12 @@
                         <label for="cofirm-password" class="auth-field-label">Confirm Password *</label>
                         <div class="auth-password-container">
                             <input required type="password" id="confirm-password" placeholder="Re-enter your password" class="auth-field-input">
-                            <i class="far fa-eye password-icon"></i>
+                            <i id="see-password-2" class="far fa-eye password-icon"></i>
                         </div>
+                        <p id="confirm-error-message" class="error-message"></p>
                         
                     </div>
-
+                    <br>
                     <button type="submit" id="submit-button" class="see-auth-btn">Register</button>
 
                     <div class="auth-redirect">
