@@ -1,0 +1,25 @@
+.see-hero-container{
+    height: 45vh;
+    background-color: #0C85B7;
+    color: #FFFFFF;
+    font-size: 0.9rem;
+}
+.see-card{
+    font-size: 0.92rem;
+}
+.see-heading{
+    text-align: left;
+    color: #0C85B7;
+}
+.blog-nav a{
+    color: #0C85B7;
+    font-weight: bold;
+    border: solid 1px #3A376E;
+    border-radius: 100px;
+}
+.blog-nav a:active, .blog-nav a:visited{
+    color: #0C85B7;
+    background-color: #EEDA9F;
+    font-weight: bold;
+    border-radius: 100px;
+}
