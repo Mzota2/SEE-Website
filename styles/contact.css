@@ -1,0 +1,148 @@
+*{
+    box-sizing: border-box;
+}
+
+.see-hero-container{
+    height: 45vh;
+    background-color: #0C85B7;
+    color: #FFFFFF;
+    font-size: 0.9rem;
+}
+.see-card{
+    font-size: 0.92rem;
+}
+.see-heading{
+    text-align: left;
+    color: #0C85B7;
+}
+.see-column{
+    display: flex;
+    flex-direction: column;
+}
+.see-hero-contact-container{
+    background-color: var(--yellow);
+    padding: 10px;
+}
+.see-contact-form{
+    width:100%;
+}
+.blog-nav a{
+    color: #0C85B7;
+    font-weight: bold;
+    border: solid 1px #3A376E;
+    border-radius: 100px;
+}
+.contact-form-suspend{
+    top: -100px;
+    left: 0;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+    padding: 10px;
+}
+.contact-form-title{
+    font-size: 1.3rem;
+}
+.auth-field-input{
+    height: 42px;
+    border-radius: 5px;
+    border: 1px solid var(--yellow);
+    font-family: 'Poppins', sans-serif;
+    padding: 0 5px;
+    width: 100%;
+
+}
+.see-contact-btn{
+    height: 42px;
+    background-color: var(--light-blue);
+    border: none;
+    outline: none;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+}
+
+
+
+
+
+/* all styles for auth pages */
+/* body{
+    color:black;
+    background-color: white;
+}
+
+.auth-container{
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom,var(--gradient-yellow), var(--gradient-blue));
+    
+}
+
+.auth-lgradient{
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 50vh;
+    width: 100vw;
+    background-image: linear-gradient(to bottom,var(--gradient-yellow), var(--gradient-blue));
+}
+
+
+.see-auth-form{
+    height: 90vh;
+    overflow-y: auto;
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    border-radius:20px 10px;
+}
+
+.see-auth-fields{
+    gap: 15px;
+    margin-top: 20px;
+}
+
+
+.auth-field-label{
+    font-weight: medium;
+}
+
+.auth-form-title-container{
+    align-self: center;
+    text-align: center;
+
+}
+
+.blog-form-title{
+    font-size: 1.3rem;
+}
+
+
+.see-auth-btn:hover{
+    opacity: 0.5;
+    transition: .5s ease;
+}
+
+.see-auth-btn:focus{
+    opacity: 0.5;
+    transition: .5s ease;
+}
+
+
+
+.auth-password-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    
+}
+.auth-password-container input{
+    width: 100%;
+} */
