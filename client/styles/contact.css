@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 .see-hero-container{
     height: 45vh;
     background-color: #0C85B7;
@@ -11,28 +15,64 @@
     text-align: left;
     color: #0C85B7;
 }
+.see-column{
+    display: flex;
+    flex-direction: column;
+}
+.see-hero-contact-container{
+    background-color: var(--yellow);
+    padding: 10px;
+}
+.see-contact-form{
+    width:100%;
+}
 .blog-nav a{
     color: #0C85B7;
     font-weight: bold;
     border: solid 1px #3A376E;
     border-radius: 100px;
 }
-.blog-form-suspend{
-    top: -200px;
+.contact-form-suspend{
+    top: -100px;
     left: 0;
     height: 100%;
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 90%;
     justify-content: center;
+    justify-self: center;
     align-items: center;
     padding: 10px;
 }
+.contact-form-title{
+    font-size: 1.3rem;
+}
+.auth-field-input{
+    height: 42px;
+    border-radius: 5px;
+    border: 1px solid var(--yellow);
+    font-family: 'Poppins', sans-serif;
+    padding: 0 5px;
+    width: 100%;
+
+}
+.see-contact-btn{
+    height: 42px;
+    background-color: var(--light-blue);
+    border: none;
+    outline: none;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+}
+
+
+
 
 
 /* all styles for auth pages */
-body{
+/* body{
     color:black;
     background-color: white;
 }
@@ -45,16 +85,6 @@ body{
     background-image: linear-gradient(to bottom,var(--gradient-yellow), var(--gradient-blue));
     
 }
-.auth-image-container{
-    height: 50vh;
-    width: 100vw;
-    background-color: aqua;
-}
-.auth-image{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 
 .auth-lgradient{
     margin: 0 !important;
@@ -63,10 +93,7 @@ body{
     width: 100vw;
     background-image: linear-gradient(to bottom,var(--gradient-yellow), var(--gradient-blue));
 }
-.see-column{
-    display: flex;
-    flex-direction: column;
-}
+
 
 .see-auth-form{
     height: 90vh;
@@ -82,14 +109,6 @@ body{
     margin-top: 20px;
 }
 
-.auth-field-input{
-    height: 42px;
-    border-radius: 5px;
-    border: 1px solid var(--yellow);
-    font-family: 'Poppins', sans-serif;
-    padding: 0 5px;
-
-}
 
 .auth-field-label{
     font-weight: medium;
@@ -101,26 +120,10 @@ body{
 
 }
 
-.auth-form-title{
+.blog-form-title{
     font-size: 1.3rem;
 }
 
-.auth-form-sub-title{
-    font-size: 1rem;
-    color: var(--light-blue);
-    margin-top: 8px;
-}
-
-.see-auth-btn{
-    height: 42px;
-    background-color: var(--light-blue);
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.05rem;
-}
 
 .see-auth-btn:hover{
     opacity: 0.5;
@@ -132,56 +135,7 @@ body{
     transition: .5s ease;
 }
 
-.payment-proof-file-container{
-    position: relative;
-    border: 1px solid var(--yellow);
-    height: 42px;
-    display: flex;
-    align-items: center;
-    padding: 0 5px;
-    border-radius: 5px;
-    
-}
 
-.payment-icon{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: auto;
-    position: relative;
-    justify-content: center;
-    height: fit-content;
-}
-.payment-input{
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 20px;
-    z-index: 1;
-    opacity: 0;
-
-}
-.upload-icon{
-    top: 0;
-    left: 0;
-    font-size: 24px;
-    position: absolute;
-    cursor: pointer;
-}
-
-.upload-icon:hover{
-    color: var(--light-blue);
-    transition: .5s ease;
-}
-.upload-icon:focus{
-    color: var(--light-blue);
-    transition: .5s ease;
-}
-
-.proof-placeholder-text{
-    color: #848b9b;
-    font-size: 13px;
-}
 
 .auth-password-container{
     position: relative;
@@ -191,26 +145,4 @@ body{
 }
 .auth-password-container input{
     width: 100%;
-}
-.password-icon{
-    position: absolute;
-    right: 5px;
-    cursor: pointer;
-}
-
-.password-icon:focus{
-    color: var(--light-blue);
-    transition: .5s ease;
-}
-
-.password-icon:hover{
-    color: var(--light-blue);
-    transition: .5s ease;
-}
-.auth-redirect{
-    text-align: center;
-}
-.auth-redirect-anchor{
-    text-decoration: none;
-    color: var(--light-blue);
-}
+} */
