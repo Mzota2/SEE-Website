@@ -16,12 +16,33 @@
     color: #0C85B7;
 }
 .see-column{
+    margin-top: 0.7rem;
     display: flex;
     flex-direction: column;
 }
 .see-hero-contact-container{
     background-color: var(--yellow);
     padding: 10px;
+}
+.see-hero-contact-container i{
+    color: var(--light-blue);
+    font-size: 45px;
+}
+.hero-link-container{
+    display: flex;
+    background-color: var(--light-blue);
+    height: 3rem;
+    justify-content: center;
+    align-items: center;
+    justify-self: left;
+}
+
+.hero-link-container a{
+    color: var(--white);
+}
+.link{
+    text-decoration: none;
+    color: var(--light-blue);
 }
 .see-contact-form{
     width:100%;
@@ -33,7 +54,7 @@
     border-radius: 100px;
 }
 .contact-form-suspend{
-    top: -100px;
+    top: -5vh;
     left: 0;
     height: 100%;
     position: relative;
@@ -55,15 +76,29 @@
     font-family: 'Poppins', sans-serif;
     padding: 0 5px;
     width: 100%;
-
 }
+.auth-field-text-area{
+    border-radius: 5px;
+    border: 1px solid var(--yellow);
+    font-family: 'Poppins', sans-serif;
+    padding: 0 5px;
+    width: 100%;
+}
+.auth-field-label{
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
 .see-contact-btn{
+    position: relative;
+    left: 3rem;
     height: 42px;
     background-color: var(--light-blue);
     border: none;
     outline: none;
     color: white;
     font-family: 'Poppins', sans-serif;
+    font-weight: 300;
     font-size: 1.05rem;
 }
 
@@ -72,11 +107,7 @@
 
 
 /* all styles for auth pages */
-/* body{
-    color:black;
-    background-color: white;
-}
-
+/* 
 .auth-container{
     padding: 0;
     margin: 0;
@@ -110,9 +141,6 @@
 }
 
 
-.auth-field-label{
-    font-weight: medium;
-}
 
 .auth-form-title-container{
     align-self: center;
