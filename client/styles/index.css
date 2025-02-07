@@ -72,6 +72,9 @@ footer, footer a{
     margin-top: 76px;
     padding-bottom: 10px;
 }
+.navigation-bar .nav-link, .navigation-bar i{
+    color: var(--light-blue)
+}
 .see-card-img{
     width: 100%;
     height: 40vw;
