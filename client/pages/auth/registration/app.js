@@ -1,6 +1,6 @@
 // Registration constants
 import {appUrl} from '../../../helpers.js';
-
+const SUSPENSE_BOX = document.querySelector(".auth-form-suspend");
 const FORM = document.getElementById("submit-form");
 const EMAIL = document.getElementById("email-address");
 const FIRSTNAME = document.getElementById("firstname");
@@ -19,6 +19,7 @@ const ICON_PASSWORD  = document.getElementById("see-password");
 const CONFIRM_ICON_PASSWORD  = document.getElementById("see-password-2");
 const MEMBERSHIP_FEE_TEXT = document.getElementById("proof-placeholder-text");
 
+//validate email and password
 const InputValidation = ()=>{
     const passwordValue = PASSWORD?.value;
     const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
@@ -51,6 +52,7 @@ const InputValidation = ()=>{
  
 }
 
+//show alert message after registering
 const handleAlertBox = (message, type)=>{
         console.log("working");
         ALERT_BOX.classList.add("alert-box");
@@ -78,6 +80,7 @@ const handleAlertBox = (message, type)=>{
         }, 3000);
 }
 
+//handle viewing 
 const handleTogglePassword = (icon, password)=>{
     if(icon?.classList?.contains('fa-eye')){
         icon?.classList?.remove("fa-eye");
@@ -91,6 +94,7 @@ const handleTogglePassword = (icon, password)=>{
     }
 }
 
+//view filename when uploaded
 const handleViewFileName = ()=>{
     if(PAYMENT?.files[0]){
         const filename = PAYMENT?.files[0]?.name;
@@ -99,7 +103,40 @@ const handleViewFileName = ()=>{
     }
 }
 
+//use local storage to keep track of accounts created but not verified
+const handleSetStorage = (email)=>{
+    localStorage.setItem("user", JSON.stringify({email}));
+}
 
+const handleGetStorage = ()=>{
+    const result = JSON.parse(localStorage.getItem("user"));
+    if(result){
+        handleShowVerificationScreen(result?.email)
+    }
+}
+
+//shows verification email screen
+
+const handleShowVerificationScreen = (email)=>{
+    FORM.style.visibility = 'hidden';
+    SUSPENSE_BOX.innerHTML = `
+        <div class="see-auth-form see-column">
+            <div class="auth-form-title-container auth-verify-form-title-container">
+                <img src="../../../assets/images/main-logo.jpg" alt="SEE LOGO" class="see-logo">
+                <h1 class="auth-form-title">Society of Electrical Engineers - MUBAS</h1>
+                <h2 class="auth-form-sub-title">ACCOUNT VERIFICATION</h2>
+                <p class="auth-verify-description">We have sent a verification email to <strong>${email}</strong>. Click the link to verify your account
+                    If you can't find the email check the spam folder.Click here to <span class ="auth-resend-code">resend code</span>
+                </p>
+            </div>
+
+        </div>
+    `
+    SUSPENSE_BOX.classList.add("auth-form-suspend-login");
+
+}
+
+//takes care of the whole registration process
 const handleRegister = async(e)=>{
     
     if(!InputValidation()){
@@ -110,29 +147,26 @@ const handleRegister = async(e)=>{
             const form = new FormData();
             form.append("firstname", FIRSTNAME?.value);
             form.append("surname", SURNAME?.value);
-            form.append("email", EMAIL?.value);
+            form.append("email", EMAIL?.value?.toLowerCase());
             form.append("regNumber", REGNO?.value);
             form.append("programId", PROGRAM?.value);
             form.append("year", YEAR?.value);
             form.append("file", PAYMENT?.files[0]);
             form.append("password", PASSWORD?.value);
-            console.log(form);
-            console.log(JSON.stringify(form));
             const response = await fetch(`${appUrl}auth/register`, {
                 method:"POST",
                 body:form,
                 credentials:'include'
             });
-
-            const result = await response.json();
-            console.log(result);
             handleAlertBox("You have successfully signed up", "success");
+            handleSetStorage(EMAIL?.value?.toLowerCase());
         } catch (error) {
             console.log(error);
         }
         
     }
 }
+
 
 
 //Events
@@ -151,3 +185,5 @@ CONFIRM_ICON_PASSWORD.addEventListener("click",()=>{
 });
 
 PAYMENT.addEventListener("change", handleViewFileName);
+
+window.addEventListener("DOMContentLoaded", handleGetStorage)

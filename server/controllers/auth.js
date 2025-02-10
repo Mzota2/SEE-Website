@@ -227,7 +227,7 @@ const register = async (req, res)=>{
                     return res.status(500).json(err)
                 }
                 else{
-                    const link = `${process.env.FRONT_END_URL}verify/${token}`
+                    const link = `${process.env.FRONT_END_URL}${token}`
                     await sendMail(email, link,  'ACCOUNT VERIFICATION');
                     return res.status(200).json('User has been created');
                 }
