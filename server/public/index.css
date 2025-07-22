@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap'); 
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    color:#0C85B7;
+    background-color: black;
+}
+h1{
+    font-weight: 500;
+}
+
+h2, h3{
+    font-weight: 400;
+}
+
+:root{
+    --light-blue: #0C85B7;
+    --dark-blue:#3A376E;
+    --yellow:#EEDA9F;
+    --white:#FFFFFF;
+    --feint-white:#F5F5F5;
+    --black:#000000;
+    --green:#0DA740;
+    --gradient-blue:#06587A;
+    --gradient-yellow:#EEDA9F;
+}
+header{
+    height: 65px;
+    width: 100vw;
+    position: fixed;
+    z-index: 2;
+}
+main{
+    padding-top: 65px;
+}
+
+footer, footer a{
+    background-color: #3A376E;
+    color: #FFFFFF;
+}
+
+.see-header{
+    position: relative;
+    z-index:1;
+}
+
+/* different from the see-header, heading tag is for <h1>...<h6> */
+.see-heading-tag{
+    color: #0C85B7;
+    text-align: center;
+}
+.see-hero-overlay{
+    background-color: #0c84b77c;
+}
+.see-more{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    border-bottom:solid 0.01px #0c84b72f;
+}
+.navigation-bar{
+    background-color: white;
+    position: relative;
+    box-shadow:-1px 1px 1px 0.11px  #0C85B7;
+    z-index:2;
+    border-radius: 0px  0px 20px 20px;
+    margin-top: 76px;
+    padding-bottom: 10px;
+}
+.see-card-img{
+    width: 100%;
+    height: 40vw;
+    border-radius:0.5rem;
+}
+

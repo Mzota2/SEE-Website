@@ -24,6 +24,7 @@ app.use(cors({
     origin:['http://127.0.0.1:5500'],
     credentials:true
 }))
+app.use(express.static(path.join(__dirname, 'public')));
 
 //routes
 app.use("/api", studentsRoutes);
@@ -38,5 +39,14 @@ app.use("/api", leadersRoutes);
 app.use("/api", teamRoutes);
 app.get('/api/auth/refresh', refreshToken);
 app.use('/api/uploads', express.static(path.join(__dirname, 'uploads')));
+
+
+app.get("/auth/verification/:id", (req, res)=>{
+    res.sendFile(path.join(__dirname, "public", "verification.html"));
+})
+
+app.get("/auth/reset-password/:id", (req, res)=>{
+    res.sendFile(path.join(__dirname, "public", "reset-password.html"));
+})
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
